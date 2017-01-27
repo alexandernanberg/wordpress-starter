@@ -1,0 +1,36 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body {
+  min-width: 320px;
+  cursor: default;
+
+  // For JavaScript detection of CSS breakpoints
+  &::after {
+    display: none;
+    content: 'desktop';
+
+    @each $key, $value in $breakpoints {
+      @include breakpoint($key) {
+        content: '#{$key}';
+      }
+    }
+  }
+}
+
+img {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 100%;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+}

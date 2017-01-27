@@ -1,0 +1,22 @@
+# Node
+node_modules
+
+# Composer
+vendor
+composer.lock
+
+# Vagrant
+Vagrantfile
+.vagrant
+
+# Wordpress
+public/wp
+public/app/plugins
+public/app/uploads
+public/app/themes/webbsverige/static
+
+# Misc
+.editorconfig
+.env
+.eslint
+.gitignore
