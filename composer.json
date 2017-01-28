@@ -51,7 +51,7 @@
     "twig/extensions": "~1.4"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "^2.6.0"
+    "squizlabs/php_codesniffer": "^2.7.0"
   },
   "extra": {
     "installer-paths": {

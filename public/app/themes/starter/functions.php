@@ -1,10 +1,11 @@
 <?php
 
-$timber = new Timber\Timber();
+new Timber\Timber();
 
 Timber::$dirname = array(
   'views',
-  'views/templates'
+  'views/templates',
+  'views/components',
 );
 
 class Site extends TimberSite {
@@ -17,8 +18,9 @@ class Site extends TimberSite {
     add_filter('get_twig', array($this, 'add_to_twig'));
     add_filter('acf/settings/show_admin', '__return_false');
 
-    add_action('acf/init', array($this, 'register_acf_fields'));
     add_action('init', array($this, 'register_post_types'));
+    add_action('init', array($this, 'register_taxonomies'));
+    add_action('acf/init', array($this, 'register_acf_fields'));
     add_action('wp_enqueue_scripts', array($this, 'enqueue_assets'));
 
     parent::__construct();
@@ -27,6 +29,10 @@ class Site extends TimberSite {
   function register_post_types() {
 
   }
+
+  function register_taxonomies() {
+
+	}
 
   function register_acf_fields() {
 

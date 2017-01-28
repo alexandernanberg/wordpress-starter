@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const tasks = require('strt-gulptasks')({
+  source: 'source',
   output: 'public/app/themes/starter/static'
 });
 
