@@ -1,16 +1,9 @@
 <header role="banner" class="header">
   <div class="grid -pad -fluid">
     <div class="grid__column -desktop-4">
-      <a href="{{ site.url }}">Webbsverige</a>
+      <a href="{{ site.url }}">
+        <img src="{{ site.logo.src }}" role="presentation">
+      </a>
     </div>
-    <nav role="navigation" class="grid__column -desktop-8 nav">
-      <ul class="nav__list">
-        {% for item in menu.get_items %}
-          <li class="{{ item.classes|join(' ') }} nav__item">
-            <a href="{{ item.link }}" class="nav__link">{{ item.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </nav>
   </div>
 </header>

@@ -48,6 +48,8 @@
     "advanced-custom-fields/advanced-custom-fields-pro": "*",
     "wpackagist-plugin/debug-bar": "~0.8.4",
     "wpackagist-plugin/debug-bar-timber": "~0.3",
+    "wpackagist-plugin/svg-support": "2.3.6",
+    "wpackagist-plugin/disable-comments": "2.6",
     "twig/extensions": "~1.4"
   },
   "require-dev": {

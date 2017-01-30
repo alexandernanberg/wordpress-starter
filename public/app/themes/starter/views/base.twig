@@ -2,21 +2,19 @@
 <html {{ site.language_attributes }}>
 <head>
   <meta charset="{{ site.charset }}" />
-  <title>{{ wp_title }}</title>
-  <meta name="description" content="{{ site.description }}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   {{ wp_head }}
 <head/>
 <body class="{{ body_class }}">
-  {# {% include 'components/header.twig' %} #}
+  {% include 'components/header.twig' %}
 
   <main role="main" class="main">
     {% block content %}
     {% endblock %}
   </main>
 
-  {# {% include 'components/footer.twig' %} #}
+  {% include 'components/footer.twig' %}
 
   {{ wp_footer }}
 </body>

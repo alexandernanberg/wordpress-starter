@@ -11,8 +11,11 @@ Timber::$dirname = array(
 class Site extends TimberSite {
 
   function __construct() {
+    add_theme_support('custom-logo');
+    add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_theme_support('menus');
+    add_theme_support('html5', array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption'));
 
     add_filter('timber_context', array($this, 'add_to_context'));
     add_filter('get_twig', array($this, 'add_to_twig'));
@@ -40,6 +43,7 @@ class Site extends TimberSite {
 
   function add_to_context($context) {
     $context['site'] = $this;
+    $context['site']->logo = new TimberImage(get_theme_mod('custom_logo'));
     $context['menu'] = new TimberMenu();
 
     return $context;

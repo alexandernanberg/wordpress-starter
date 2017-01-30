@@ -1,9 +1,6 @@
 <?php
 
-$post = new TimberPost();
 $context = Timber::get_context();
-
-$context['post'] = $post;
-$context['disqus'] = Timber::get_sidebar('disqus.twig', $context);
+$context['post'] = new TimberPost();
 
 Timber::render('single.twig', $context);
