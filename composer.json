@@ -31,26 +31,26 @@
         },
         "require": {
           "philippbaschke/acf-pro-installer": "^1.0",
-          "composer/installers": "^1.2"
+          "composer/installers": "^1.2.0"
         }
       }
     }
   ],
   "require": {
     "php": ">=5.5",
-    "composer/installers": "^1.2",
+    "composer/installers": "^1.2.0",
     "vlucas/phpdotenv": "^2.4.0",
-    "johnpbloch/wordpress": "~4.7",
+    "johnpbloch/wordpress": "^4.7.0",
     "oscarotero/env": "^1.0",
-    "roots/wp-password-bcrypt": "1.0.0",
-    "timber/timber": "~1.2",
-    "yoast/wordpress-seo": "~4.1",
+    "roots/wp-password-bcrypt": "^1.0.0",
+    "timber/timber": "^1.2.0",
+    "yoast/wordpress-seo": "^4.1.0",
     "advanced-custom-fields/advanced-custom-fields-pro": "*",
-    "wpackagist-plugin/debug-bar": "~0.8.4",
-    "wpackagist-plugin/debug-bar-timber": "~0.3",
-    "wpackagist-plugin/svg-support": "2.3.6",
-    "wpackagist-plugin/disable-comments": "2.6",
-    "twig/extensions": "~1.4"
+    "wpackagist-plugin/debug-bar": "^0.8.0",
+    "wpackagist-plugin/debug-bar-timber": "^0.3.0",
+    "wpackagist-plugin/svg-support": "^2.3.0",
+    "wpackagist-plugin/disable-comments": "^2.6.0",
+    "twig/extensions": "^1.4.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.7.0"
@@ -67,11 +67,14 @@
     "test": [
       "vendor/bin/phpcs --ignore=public/wp/,vendor/ -n -s ."
     ],
-    "post-install-cmd": [
+    "remove-wp-themes": [
       "find ./public/wp/wp-content/themes/* ! -name 'index.php' -type d -exec rm -rf {} +"
     ],
+    "post-install-cmd": [
+      "composer run-script remove-wp-themes"
+    ],
     "post-update-cmd": [
-      "find ./public/wp/wp-content/themes/* ! -name 'index.php' -type d -exec rm -rf {} +"
+      "composer run-script remove-wp-themes"
     ]
   }
 }
