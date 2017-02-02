@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "gulp": "github:gulpjs/gulp#4.0",
-    "strt-gulptasks": "^2.1.4"
+    "strt-gulptasks": "^2.2.2"
   },
   "devDependencies": {
     "eslint": "^3.14.1",
@@ -22,7 +22,7 @@
     "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-react": "^6.9.0",
     "postcss": "^5.2.11",
-    "stylelint": "^7.7.1",
+    "stylelint": "^7.8.0",
     "stylelint-config-strateg": "^1.0.13"
   },
   "scripts": {
