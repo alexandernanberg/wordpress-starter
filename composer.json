@@ -43,7 +43,7 @@
     "johnpbloch/wordpress": "~4.7",
     "oscarotero/env": "^1.0",
     "roots/wp-password-bcrypt": "1.0.0",
-    "timber/timber": "~1.1",
+    "timber/timber": "~1.2",
     "yoast/wordpress-seo": "~4.1",
     "advanced-custom-fields/advanced-custom-fields-pro": "*",
     "wpackagist-plugin/debug-bar": "~0.8.4",
