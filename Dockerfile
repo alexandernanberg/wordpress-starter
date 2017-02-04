@@ -33,12 +33,16 @@ WORKDIR /var/www
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 ENV ACF_PRO_KEY b3JkZXJfaWQ9NTYzODJ8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE1LTA1LTE5IDEzOjI2OjM4
-ADD composer.json /var/www/composer.json
-#ADD composer.lock /var/www/composer.lock
-RUN composer install --prefer-source --no-interaction
+ADD composer.json ./composer.json
+ADD composer.lock ./composer.lock
+RUN composer install --no-scripts --no-autoloader --no-dev
 
 # Add files
-ADD . /var/www
+ADD . ./
+
+# Compoer optimize and post install scripts
+RUN composer dump-autoload --optimize && \
+	composer run-script post-install-cmd
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/public
