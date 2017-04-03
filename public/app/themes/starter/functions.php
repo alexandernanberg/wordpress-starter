@@ -5,7 +5,6 @@ new Timber\Timber();
 Timber::$dirname = array(
   'views',
   'views/templates',
-  'views/components',
 );
 
 class Site extends TimberSite {
@@ -56,20 +55,20 @@ class Site extends TimberSite {
   }
 
   function enqueue_assets() {
-    wp_enqueue_style(
-      'main.css',
-      get_template_directory_uri() . '/static/styles/main.css',
-      array(),
-      filemtime(get_stylesheet_directory() . '/static/styles/main.css')
-    );
+    // wp_enqueue_style(
+    //   'main.css',
+    //   get_template_directory_uri() . '/static/styles/main.css',
+    //   array(),
+    //   filemtime(get_stylesheet_directory() . '/static/styles/main.css')
+    // );
 
-    wp_enqueue_script(
-      'main.js',
-      get_template_directory_uri() . '/static/scripts/main.js',
-      array(),
-      filemtime(get_stylesheet_directory() . '/static/scripts/main.js'),
-      true
-    );
+    // wp_enqueue_script(
+    //   'main.js',
+    //   get_template_directory_uri() . '/static/scripts/main.js',
+    //   array(),
+    //   filemtime(get_stylesheet_directory() . '/static/scripts/main.js'),
+    //   true
+    // );
   }
 
 }
