@@ -8,7 +8,6 @@ Timber::$dirname = array(
 );
 
 class Site extends TimberSite {
-
   function __construct() {
     add_theme_support('custom-logo');
     add_theme_support('title-tag');
@@ -70,7 +69,6 @@ class Site extends TimberSite {
     //   true
     // );
   }
-
 }
 
 new Site();

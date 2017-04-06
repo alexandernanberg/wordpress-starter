@@ -1,5 +1,5 @@
 {
-  "name": "alexandernanberg-wp-starter-theme",
+  "name": "wordpress-starter",
   "type": "project",
   "license": "MIT",
   "description": "",
@@ -7,7 +7,7 @@
     {
       "name": "Alexander Nanberg",
       "email": "alex.nanberg@hotmail.com",
-      "homepage": "https://alexandernanberg.io"
+      "homepage": "https://alexandernanberg.com"
     }
   ],
   "config": {
