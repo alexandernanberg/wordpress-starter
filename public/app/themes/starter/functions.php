@@ -1,9 +1,8 @@
 <?php
 
-require 'lib/bootstrap.php';
-
 new Timber\Timber();
 
+// Timber::$cache = true;
 Timber::$dirname = array(
   'views',
   'views/templates',
@@ -11,7 +10,17 @@ Timber::$dirname = array(
 
 class Site extends TimberSite {
   function __construct() {
-    WPStarter\Theme::customize();
+    add_theme_support('custom-logo');
+    add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
+    add_theme_support('menus');
+    add_theme_support('html5', array(
+      'search-form',
+      'comment-form',
+      'comment-list',
+      'gallery',
+      'caption'
+    ));
 
     add_filter('timber_context', array($this, 'add_to_context'));
     add_filter('get_twig', array($this, 'add_to_twig'));

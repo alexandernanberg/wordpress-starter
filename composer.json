@@ -64,6 +64,11 @@
     },
     "wordpress-install-dir": "public/wp"
   },
+  "autoload": {
+    "psr-4": {
+      "WPStarter\\": "public/app/themes/starter/lib"
+    }
+  },
   "scripts": {
     "test": [
       "vendor/bin/phpcs --ignore=public/wp/,vendor/ -n -s ."
