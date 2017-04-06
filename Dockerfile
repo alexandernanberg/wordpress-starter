@@ -32,7 +32,7 @@ WORKDIR /var/www
 
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-ENV ACF_PRO_KEY b3JkZXJfaWQ9NTYzODJ8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE1LTA1LTE5IDEzOjI2OjM4
+ENV ACF_PRO_KEY 'acfkey'
 ADD composer.json ./composer.json
 ADD composer.lock ./composer.lock
 RUN composer install --no-scripts --no-autoloader --no-dev
