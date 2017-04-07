@@ -7,22 +7,19 @@ use WP_REST_Request;
 use WP_Error;
 
 class API {
-  public function register() {
+  public static function register() {
     register_rest_route('app/v1', '/posts', array(
       'methods' => 'GET',
       'callback' => function (WP_REST_Request $request) {
         $parameters = $request->get_params();
-        $args = array(
-          'posts_per_page' => 2,
-          'offset' => 0,
-        );
+        $args = array();
 
         if (isset($parameters['slug'])) {
           $args['name'] = $parameters['slug'];
         }
 
-        if (isset($parameters['posts_per_page'])) {
-          $args['posts_per_page'] = $parameters['posts_per_page'];
+        if (isset($parameters['per_page'])) {
+          $args['posts_per_page'] = $parameters['per_page'];
         }
 
         if (isset($parameters['page'])) {
@@ -44,8 +41,24 @@ class API {
           );
         }, $posts);
 
-        return new WP_REST_Response($posts);
+        $response = new WP_REST_Response($posts);
+
+        return $response;
       },
+      'args' => array(
+				'per_page' => array(
+					'default' => 10,
+					'sanitize_callback' => 'absint',
+				),
+				'page' => array(
+					'default' => 1,
+					'sanitize_callback' => 'absint',
+				),
+				'slug' => array(
+					'default' => null,
+					'sanitize_callback' => 'sanitize_title',
+				)
+			),
     ));
   }
 }
