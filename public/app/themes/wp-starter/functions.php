@@ -10,6 +10,7 @@ Timber::$dirname = array(
 
 class Site extends TimberSite {
   function __construct() {
+    // add_editor_style();
     add_theme_support('custom-logo');
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
@@ -25,6 +26,7 @@ class Site extends TimberSite {
     add_filter('timber_context', array($this, 'add_to_context'));
     add_filter('get_twig', array($this, 'add_to_twig'));
     add_filter('acf/settings/show_admin', '__return_false');
+    add_filter('wpseo_metabox_prio', '__return_false');
 
     add_action('init', 'WPStarter\PostTypes::register');
     add_action('init', 'WPStarter\PostTypes::register');
