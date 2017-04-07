@@ -27,7 +27,8 @@ class Site extends TimberSite {
     add_filter('acf/settings/show_admin', '__return_false');
 
     add_action('init', 'WPStarter\PostTypes::register');
-    add_action('init', 'WPStarter\Taxonomies::register');
+    add_action('init', 'WPStarter\PostTypes::register');
+    add_action('rest_api_init', 'WPStarter\API::register');
     add_action('acf/init', 'WPStarter\ACF::register');
     add_action('wp_enqueue_scripts', 'WPStarter\Assets::load');
 
