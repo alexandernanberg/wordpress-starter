@@ -46,8 +46,8 @@ class API {
         $total_pages = ceil($total_posts / (int)$wp_query->query_vars['posts_per_page']);
 
         $response = new WP_REST_Response($posts);
-        $response->header('X-WP-Total', (int) $total_posts);
-		    $response->header('X-WP-TotalPages', (int) $total_pages);
+        $response->header('X-WP-Total', (int)$total_posts);
+		    $response->header('X-WP-TotalPages', (int)$total_pages);
 
         return $response;
       },
