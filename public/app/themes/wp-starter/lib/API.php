@@ -4,6 +4,7 @@ namespace WPStarter;
 
 use WP_REST_Response;
 use WP_REST_Request;
+use WP_Query;
 use WP_Error;
 
 class API {
@@ -12,6 +13,7 @@ class API {
       'methods' => 'GET',
       'callback' => function (WP_REST_Request $request) {
         $parameters = $request->get_params();
+        $wp_query = new WP_Query();
         $args = array();
 
         if (isset($parameters['slug'])) {
@@ -26,7 +28,7 @@ class API {
           $args['offset'] = ($parameters['page'] - 1) * $args['posts_per_page'];
         }
 
-        $posts = get_posts($args);
+        $posts = $wp_query->query($args);
         $posts = array_map(function ($post) {
           $id = $post->ID;
 
@@ -40,8 +42,12 @@ class API {
             'content' => apply_filters('the_content', $post->post_content),
           );
         }, $posts);
+        $total_posts = $wp_query->found_posts;
+        $total_pages = ceil($total_posts / (int)$wp_query->query_vars['posts_per_page']);
 
         $response = new WP_REST_Response($posts);
+        $response->header('X-WP-Total', (int) $total_posts);
+		    $response->header('X-WP-TotalPages', (int) $total_pages);
 
         return $response;
       },
