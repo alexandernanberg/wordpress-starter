@@ -56,7 +56,8 @@
     "wpackagist-plugin/debug-bar": "^0.9.0",
     "wpackagist-plugin/debug-bar-timber": "^0.3.0",
     "wpackagist-plugin/svg-support": "^2.3.0",
-    "twig/extensions": "^1.4.0"
+    "twig/extensions": "^1.4.0",
+    "twig/twig": "^1.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.7.0"
