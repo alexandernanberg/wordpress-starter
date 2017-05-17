@@ -42,6 +42,7 @@ class API {
             'content' => apply_filters('the_content', $post->post_content),
           );
         }, $posts);
+
         $total_posts = $wp_query->found_posts;
         $total_pages = ceil($total_posts / (int)$wp_query->query_vars['posts_per_page']);
 

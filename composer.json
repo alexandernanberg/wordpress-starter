@@ -28,7 +28,7 @@
       "type": "package",
       "package": {
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
-        "version": "5.5.11",
+        "version": "5.5.14",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
@@ -53,7 +53,7 @@
     "advanced-custom-fields/advanced-custom-fields-pro": "*",
     "wpackagist-plugin/clean-image-filenames": "^1.1.0",
     "wpackagist-plugin/disable-comments": "^2.6.0",
-    "wpackagist-plugin/debug-bar": "^0.8.0",
+    "wpackagist-plugin/debug-bar": "^0.9.0",
     "wpackagist-plugin/debug-bar-timber": "^0.3.0",
     "wpackagist-plugin/svg-support": "^2.3.0",
     "twig/extensions": "^1.4.0"
