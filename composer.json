@@ -42,22 +42,21 @@
     }
   ],
   "require": {
-    "php": ">=5.5",
+    "php": ">=7",
     "composer/installers": "^1.2.0",
-    "vlucas/phpdotenv": "^2.4.0",
-    "johnpbloch/wordpress": "^4.7.0",
+    "johnpbloch/wordpress": "^4.8.0",
     "oscarotero/env": "^1.0",
+    "vlucas/phpdotenv": "^2.4.0",
     "roots/wp-password-bcrypt": "^1.0.0",
     "timber/timber": "^1.2.0",
-    "yoast/wordpress-seo": "^4.1.0",
+    "twig/extensions": "^1.5.0",
+    "yoast/wordpress-seo": "^5.2.0",
     "advanced-custom-fields/advanced-custom-fields-pro": "*",
     "wpackagist-plugin/clean-image-filenames": "^1.1.0",
     "wpackagist-plugin/disable-comments": "^2.6.0",
     "wpackagist-plugin/debug-bar": "^0.9.0",
     "wpackagist-plugin/debug-bar-timber": "^0.3.0",
-    "wpackagist-plugin/svg-support": "^2.3.0",
-    "twig/extensions": "^1.4.0",
-    "twig/twig": "^1.0"
+    "wpackagist-plugin/svg-support": "^2.3.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.7.0"
@@ -78,10 +77,10 @@
       "find ./public/wp/wp-content/themes/* ! -name 'index.php' -type d -exec rm -rf {} +"
     ],
     "post-install-cmd": [
-      "composer run-script remove-wp-themes"
+      "@remove-wp-themes"
     ],
     "post-update-cmd": [
-      "composer run-script remove-wp-themes"
+      "@remove-wp-themes"
     ]
   }
 }
