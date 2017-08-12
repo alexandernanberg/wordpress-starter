@@ -3,7 +3,6 @@ node_modules
 
 # Composer
 vendor
-composer.lock
 
 # Vagrant
 Vagrantfile
@@ -13,10 +12,8 @@ Vagrantfile
 public/wp
 public/app/plugins
 public/app/uploads
-public/app/themes/webbsverige/static
 
 # Misc
 .editorconfig
 .env
-.eslint
 .gitignore
