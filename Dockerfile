@@ -14,7 +14,8 @@ RUN apt-get update \
 
 # Set recommended PHP.ini settings
 # see https://secure.php.net/manual/en/opcache.installation.php
-RUN { \
+RUN echo 'memory_limit = 512M' > /usr/local/etc/php/php.ini \
+   && { \
     echo 'opcache.memory_consumption=128'; \
     echo 'opcache.interned_strings_buffer=8'; \
     echo 'opcache.max_accelerated_files=4000'; \
