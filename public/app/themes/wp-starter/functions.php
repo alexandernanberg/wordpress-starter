@@ -2,15 +2,10 @@
 
 new Timber\Timber();
 
-// Timber::$cache = true;
-Timber::$dirname = array(
-  'views',
-  'views/templates',
-);
+Timber::$dirname = array('templates', 'views');
 
 class Site extends TimberSite {
   function __construct() {
-    // add_editor_style();
     add_theme_support('custom-logo');
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
@@ -28,11 +23,8 @@ class Site extends TimberSite {
     add_filter('acf/settings/show_admin', '__return_false');
     add_filter('wpseo_metabox_prio', '__return_false');
 
-    add_action('init', 'WPStarter\PostTypes::register');
-    add_action('init', 'WPStarter\PostTypes::register');
-    add_action('rest_api_init', 'WPStarter\API::register');
-    add_action('acf/init', 'WPStarter\ACF::register');
-    add_action('wp_enqueue_scripts', 'WPStarter\Assets::load');
+    add_action('init', array($this, 'register_post_types'));
+    add_action('wp_enqueue_scripts', array($this, 'enqueue_assets'));
 
     parent::__construct();
   }
@@ -49,6 +41,23 @@ class Site extends TimberSite {
     $twig->addExtension(new Twig_Extension_StringLoader());
 
     return $twig;
+  }
+
+	function register_post_types() {}
+
+  function enqueue_assets() {
+    // wp_enqueue_style(
+    //   'main.css',
+    //   get_template_directory_uri() . '/dist/styles/main.css'
+    // );
+
+    // wp_enqueue_script(
+    //   'main.js',
+    //   get_template_directory_uri() . '/dist/scripts/main.js',
+    //   array(),
+    //   filemtime(get_stylesheet_directory() . '/dist/scripts/main.js'),
+    //   true
+    // );
   }
 }
 

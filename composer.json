@@ -14,31 +14,10 @@
     "preferred-install": "dist",
     "optimize-autoloader": true
   },
-  "autoload": {
-    "psr-4": {
-      "WPStarter\\": "public/app/themes/wp-starter/lib"
-    }
-  },
   "repositories": [
     {
       "type": "composer",
       "url": "https://wpackagist.org"
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "advanced-custom-fields/advanced-custom-fields-pro",
-        "version": "5.5.14",
-        "type": "wordpress-plugin",
-        "dist": {
-          "type": "zip",
-          "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download"
-        },
-        "require": {
-          "philippbaschke/acf-pro-installer": "^1.0",
-          "composer/installers": "^1.2.0"
-        }
-      }
     }
   ],
   "require": {
@@ -48,10 +27,11 @@
     "oscarotero/env": "^1.0",
     "vlucas/phpdotenv": "^2.4.0",
     "roots/wp-password-bcrypt": "^1.0.0",
+    "roots/wp-config": "1.0.0",
     "timber/timber": "^1.2.0",
     "twig/extensions": "^1.5.0",
-    "yoast/wordpress-seo": "^5.2.0",
-    "advanced-custom-fields/advanced-custom-fields-pro": "*",
+    "yoast/wordpress-seo": "^8.0.0",
+    "wpackagist-plugin/advanced-custom-fields":"5.7.6",
     "wpackagist-plugin/clean-image-filenames": "^1.1.0",
     "wpackagist-plugin/disable-comments": "^1.7.0",
     "wpackagist-plugin/debug-bar": "^0.9.0",
@@ -59,7 +39,7 @@
     "wpackagist-plugin/svg-support": "^2.3.0"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "^2.7.0"
+    "squizlabs/php_codesniffer": "^3.0.0"
   },
   "extra": {
     "installer-paths": {
@@ -70,6 +50,9 @@
     "wordpress-install-dir": "public/wp"
   },
   "scripts": {
+    "post-root-package-install": [
+      "cp .env.example .env"
+    ],
     "test": [
       "vendor/bin/phpcs --ignore=public/wp/,vendor/ -n -s ."
     ],
